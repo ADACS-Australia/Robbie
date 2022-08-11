@@ -60,7 +60,7 @@ pip install -r requirements.txt
 [Stils/TOPCAT](http://www.star.bris.ac.uk/~mbt/topcat/) needs to be downloaded and available on your machine.
 Once the `.jar` file has been copied to your machine you need to edit `nextflow.config` and set the following parameter so that Robbie knows how to invoke stilts:
 ```
-params.stilts = java -jar /path/to/topcat-full.jar -stilts
+params.stilts = 'java -jar /path/to/topcat-full.jar -stilts'
 ```
 Alternatively the above can be set from the command line using the `--stilts` argument.
 
@@ -72,6 +72,22 @@ If this is not the case, and you need a different command to use SWarp then edit
 params.swarp = <swarp command>
 ```
 Alternatively the above can be set from the command line using the `--swarp` argument.
+
+## Working with Robbie on Pawsey
+Robbie is already installed and available on Pawsey / Garrawarla.
+
+### Garrawarla
+Robbie is installed as a module within the mwa group software stack.
+To access robbie you should run:
+``` bash
+module load nextflow
+module use /pawsey/mwa/software/python3/modulefiles/
+module load robbie
+```
+Now you can run robbie by typing `robbie.nf` from the command line.
+
+### Setonix
+TBD when the mwa project groups (mwasci in particular) are migrated onto Setonix.
 
 ## Setting up robbie on a new hpc or cluster
 The file `nextflow.config` contains all the information about how to run on different environments which are referred to as executors.
